@@ -3,37 +3,37 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\GenderRequest;
-use App\Models\Gender;
+use App\Http\Requests\GenrerRequest;
+use App\Models\Genrer;
 use Illuminate\Http\Request;
 
-class GenderController extends Controller
+class GenrerController extends Controller
 {
     public function index(Request $request) // ?only_trashed
     {
         if ($request->has('only_trashed')) {
-            return Gender::onlyTrashed()->get();
+            return Genrer::onlyTrashed()->get();
         }
-        return Gender::all();
+        return Genrer::all();
     }
 
-    public function store(GenderRequest $request)
+    public function store(GenrerRequest $request)
     {
-        return Gender::create($request->validated());
+        return Genrer::create($request->validated());
     }
 
-    public function show(Gender $gender)
+    public function show(Genrer $gender)
     {
         return $gender;
     }
 
-    public function update(GenderRequest $request, Gender $gender)
+    public function update(GenrerRequest $request, Genrer $gender)
     {
         $gender->update($request->validated());
         return $gender;
     }
 
-    public function destroy(Gender $gender)
+    public function destroy(Genrer $gender)
     {
         $gender->delete();
         return response()->noContent();

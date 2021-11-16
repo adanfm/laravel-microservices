@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Gender;
+use App\Models\Genrer;
 use Illuminate\Database\Seeder;
 
-class GenderSeeder extends Seeder
+class GenrerSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class GenderSeeder extends Seeder
      */
     public function run()
     {
-        Gender::factory(100)->create();
+        Genrer::factory(100)->create();
     }
 }

@@ -20,5 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::resource('categories', \App\Http\Controllers\Api\CategoryController::class, ['except' => ['create', 'edit']]);
-Route::resource('genders', \App\Http\Controllers\Api\GenderController::class, ['except' => ['create', 'edit']]);
+Route::resource('genres', \App\Http\Controllers\Api\GenrerController::class, ['except' => ['create', 'edit']]);
 
