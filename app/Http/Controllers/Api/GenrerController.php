@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\GenrerRequest;
-use App\Models\Genrer;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 
 class GenrerController extends Controller
@@ -12,28 +12,28 @@ class GenrerController extends Controller
     public function index(Request $request) // ?only_trashed
     {
         if ($request->has('only_trashed')) {
-            return Genrer::onlyTrashed()->get();
+            return Genre::onlyTrashed()->get();
         }
-        return Genrer::all();
+        return Genre::all();
     }
 
     public function store(GenrerRequest $request)
     {
-        return Genrer::create($request->validated());
+        return Genre::create($request->validated());
     }
 
-    public function show(Genrer $gender)
+    public function show(Genre $gender)
     {
         return $gender;
     }
 
-    public function update(GenrerRequest $request, Genrer $gender)
+    public function update(GenrerRequest $request, Genre $gender)
     {
         $gender->update($request->validated());
         return $gender;
     }
 
-    public function destroy(Genrer $gender)
+    public function destroy(Genre $gender)
     {
         $gender->delete();
         return response()->noContent();
