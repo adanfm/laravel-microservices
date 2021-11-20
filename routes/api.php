@@ -18,9 +18,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['except' => ['create', 'edit']], function () {
+Route::group(['except' => ['create', 'edit'], 'as' => 'api.'], function () {
     Route::resource('categories', \App\Http\Controllers\Api\CategoryController::class, ['except' => ['create', 'edit']]);
-    Route::resource('genres', \App\Http\Controllers\Api\GenrerController::class, ['except' => ['create', 'edit']]);
+    Route::resource('genres', \App\Http\Controllers\Api\GenreController::class, ['except' => ['create', 'edit']]);
 });
 
 
