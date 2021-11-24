@@ -7,6 +7,10 @@ use Illuminate\Testing\TestResponse;
 
 trait TestValidations
 {
+    protected abstract function model();
+    protected abstract function routeStore();
+    protected abstract function routeUpdate();
+
     protected function assertInvalidationInStoreAction(array $data, string $rule, array $ruleParams = [])
     {
         $response = $this->json('POST', $this->routeStore(), $data);
