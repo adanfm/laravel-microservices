@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Category;
+use App\Models\Genre;
 
-class CategoryController extends BasicCrudController
+class GenreController extends BasicCrudController
 {
     private $rules = [
         'name' => 'required|max:255',
-        'description' => 'nullable',
         'is_active' => 'boolean'
     ];
 
     protected function model()
     {
-        return Category::class;
+        return Genre::class;
     }
 
     protected function rulesStore()
