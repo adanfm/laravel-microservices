@@ -60,8 +60,6 @@ class VideoController extends BasicCrudController
         return $video;
     }
 
-
-
     protected function model()
     {
         return Video::class;

@@ -151,15 +151,8 @@ class GenreControllerTest extends TestCase
             'genre_id' => $response->json('id')
         ]);
 
-        $this->assertDatabaseHas('category_genre', [
-            'category_id' => $categoriesId[1],
-            'genre_id' => $response->json('id')
-        ]);
-
-        $this->assertDatabaseHas('category_genre', [
-            'category_id' => $categoriesId[2],
-            'genre_id' => $response->json('id')
-        ]);
+        $this->assertHasCategory($response->json('id'), $categoriesId[1]);
+        $this->assertHasCategory($response->json('id'), $categoriesId[2]);
     }
 
     public function testRollbackStore()
