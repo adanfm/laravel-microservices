@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\CastMember;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CategorySeeder::class);
         $this->call(GenreSeeder::class);
         $this->call(CastMemberSeeder::class);
+        $this->call(VideoSeeder::class);
         // \App\Models\User::factory(10)->create();
     }
 }

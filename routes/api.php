@@ -22,6 +22,7 @@ Route::group(['except' => ['create', 'edit'], 'as' => 'api.'], function () {
     Route::resource('categories', \App\Http\Controllers\Api\CategoryController::class);
     Route::resource('genres', \App\Http\Controllers\Api\GenreController::class);
     Route::resource('cast_members', \App\Http\Controllers\Api\CastMemberController::class);
+    Route::resource('videos', \App\Http\Controllers\Api\VideoController::class);
 });
 
 
