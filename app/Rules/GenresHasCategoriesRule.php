@@ -10,28 +10,18 @@ class GenresHasCategoriesRule implements Rule
     private array $categoriesId;
 
     private array $genresId;
-    /**
-     * Create a new rule instance.
-     *
-     * @return void
-     */
+
     public function __construct(array $categoriesId)
     {
         $this->categoriesId = array_unique($categoriesId);
     }
 
-    /**
-     * Determine if the validation rule passes.
-     *
-     * @param string $attribute
-     * @param mixed $value
-     * @return bool
-     */
     public function passes($attribute, $value)
     {
         if (!is_array($value)) {
             $value = [];
         }
+
         $this->genresId = array_unique($value);
         if (!count($this->genresId) || !count($this->categoriesId)) {
             return false;
@@ -61,13 +51,9 @@ class GenresHasCategoriesRule implements Rule
             ->get();
     }
 
-    /**
-     * Get the validation error message.
-     *
-     * @return string
-     */
     public function message()
     {
-        return 'A genre ID must be related at least a category ID';
+        //return 'A genre ID must be related at least a category ID';
+        return trans('validation.genres_has_categories');
     }
 }

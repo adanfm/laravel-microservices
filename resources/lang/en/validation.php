@@ -124,7 +124,7 @@ return [
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute must be a valid URL.',
     'uuid' => 'The :attribute must be a valid UUID.',
-
+    'genres_has_categories' => 'genres_has_categories',
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines
