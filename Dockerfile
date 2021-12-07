@@ -1,7 +1,18 @@
 FROM php:7.4-fpm-alpine
 
-RUN apk add --no-cache shadow openssl bash mysql-client nodejs npm git
+RUN apk add --no-cache shadow openssl \
+            git \
+            bash \
+            mysql-client \
+            nodejs \
+            npm \
+            freetype-dev \
+            libjpeg-turbo-dev \
+            libpng-dev
+
 RUN docker-php-ext-install pdo pdo_mysql
+RUN docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/
+RUN docker-php-ext-install -j$(nproc) gd
 
 RUN touch /home/www-data/.bashrc | echo "PS1='\w\$ '" >> /home/www-data/.bashrc
 
